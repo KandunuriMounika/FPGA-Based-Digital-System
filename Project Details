@@ -1,0 +1,43 @@
+# FPGA Based Digital System
+
+## Project Title
+4-Bit Counter using Verilog HDL
+
+## Abstract
+This project presents the design and implementation of a 4-bit counter using Verilog HDL for FPGA-based digital systems. The counter increments its value automatically with every clock pulse and resets to zero when the reset signal is activated. This project helps in understanding FPGA programming and digital logic system design.
+
+## Objective
+- To design a 4-bit digital counter using Verilog HDL.
+- To understand the working of FPGA-based digital systems.
+- To implement counter logic using sequential circuits.
+
+## Components and Software Used
+### Hardware
+- FPGA Board
+- Clock Signal
+- Reset Switch
+
+### Software
+- Verilog HDL
+- Xilinx Vivado / Intel Quartus Prime
+
+## Working Principle
+The 4-bit counter increases its binary value from 0000 to 1111 for every positive clock pulse. When the reset input is enabled, the counter resets back to 0000. This system demonstrates the working of sequential logic in FPGA systems.
+
+## Verilog Code
+```verilog
+module counter_4bit(
+    input clk,
+    input reset,
+    output reg [3:0] count
+);
+
+always @(posedge clk or posedge reset)
+begin
+    if (reset)
+        count <= 4'b0000;
+    else
+        count <= count + 1;
+end
+
+endmodule
